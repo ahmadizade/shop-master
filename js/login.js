@@ -22,7 +22,7 @@ $(document).ready(function () {
     } else {
         $.ajax({
             type: "GET",
-            url: 'http://localhost/php/login.php',
+            url: '../php/login.php',
             data: signup_dataString,
             cache: false,
             success: function (respon) {
