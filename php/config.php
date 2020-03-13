@@ -26,7 +26,7 @@ if (isset( $_SESSION['login_user'] )) {
 $dbHost = "localhost";
 $dbUser = "root";
 $dbPass = "asdasd";
-$dbName = "payload";
+$dbName = "vipco";
 $conn = mysqli_connect ( $dbHost, $dbUser, $dbPass, "$dbName" );
 if (!$conn) {
     die( 'Hamidreza,Could not Connect MySql:' . $mysqli->error );
