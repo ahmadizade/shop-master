@@ -1,28 +1,28 @@
 <?php
 require_once 'common.php';
 session_start ();
-if (isset( $_SESSION['login_user'] )) {
-    $login_user = $_SESSION['login_user'];
-    $userid = $_SESSION['userid'];
-    $display_name = $_SESSION['display_name'];
-//    echo("session login user is : " . $login_user);
-    $Colleague = $userid;
-} else if (isset( $_COOKIE['rememberme'] )) {
-    // Decrypt cookie variable value
-    $cookie_data = json_decode ( $_COOKIE['rememberme'], true );
-//    print_h($cookie_data);
-    $login_user = $cookie_data[0];
-    $display_name = $cookie_data[1];
-    $userid = $cookie_data[2];
-    $Colleague = $userid;
-//    echo("cookie login user is : " . $login_user);
-} else if (!isset( $_SESSION['login_user'] )) {
-    if (!isset( $_COOKIE['rememberme'] )) {
-        $login_user = "";
-        $display_name = "";
-        $userid = "";
-    }
-}
+//if (isset( $_SESSION['login_user'] )) {
+//    $login_user = $_SESSION['login_user'];
+//    $userid = $_SESSION['userid'];
+//    $display_name = $_SESSION['display_name'];
+////    echo("session login user is : " . $login_user);
+//    $Colleague = $userid;
+//} else if (isset( $_COOKIE['rememberme'] )) {
+//    // Decrypt cookie variable value
+//    $cookie_data = json_decode ( $_COOKIE['rememberme'], true );
+////    print_h($cookie_data);
+//    $login_user = $cookie_data[0];
+//    $display_name = $cookie_data[1];
+//    $userid = $cookie_data[2];
+//    $Colleague = $userid;
+////    echo("cookie login user is : " . $login_user);
+//} else if (!isset( $_SESSION['login_user'] )) {
+//    if (!isset( $_COOKIE['rememberme'] )) {
+//        $login_user = "";
+//        $display_name = "";
+//        $userid = "";
+//    }
+//}
 $dbHost = "localhost";
 $dbUser = "root";
 $dbPass = "asdasd";

@@ -17,9 +17,35 @@ if (isset($_GET['signup'])) {
         echo json_encode(1000);
     }
 }
+//test
 if (isset($_GET["cookie"])) {
     $username = $_GET["your_name"];
     $pass = $_GET["your_pass"];
+    //name & family
+    $sql_name = "SELECT name FROM `customers` WHERE email='$username';";
+    $result_name = $mysqli->query ( $sql_name );
+    $result_name = $result_name->fetch_all ();
+    //echo $result_name[0][0];
+    $name = $result_name[0][0];
+    $sql_family = "SELECT family FROM `customers` WHERE email='$username';";
+    $result_family = $mysqli->query ( $sql_family );
+    $result_family = $result_family->fetch_all ();
+    //echo $result_family[0][0];
+    $family = $result_family[0][0];
+    //++++++++++++++++++++++++++++++++++++++COOLIE++++++++++++++++++++++++++++++++++++++++++++
+    //make a coockie data array
+    $cookie_data = array($username, $pass, $name, $family);
+    //Set cookie variables
+    $days = 30;
+    //$value = encryptCookie($userid);
+    $value = $cookie_data;
+    setcookie ( "rememberme", json_encode ( $value ), time () + ($days * 24 * 60 * 60 * 1000) );
+
+
+
+
+
+
 }
 if (isset($_GET["session"])) {
     $username = $_GET["your_name"];

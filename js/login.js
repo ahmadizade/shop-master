@@ -16,9 +16,17 @@ $(document).ready(function () {
                 url: 'http://localhost/shop-master/php/login.php',
                 data: cookie,
                 success: function (respo) {
-                    $("#signin-form").fadeOut('slow');
-                    $("#fancybox").css('display', 'flex');
-                    $("#fancy_head").text("Hello world!");
+                    if (respo == 1000) {
+                        $("#signin-form").fadeOut('slow');
+                        $("#fancybox").css('display', 'flex');
+                        $("#fancy_head").text("متاسفانه شما ثبت نام نشده اید");
+                    } else {
+                        $("#signin-form").fadeOut('slow');
+                        $("#fancybox").css('display', 'flex');
+                        // console.log(respo);
+                        response = JSON.parse(respo);
+                        $("#fancy_head").text("Hello " + response["name"] + " " + response["family"]);
+                    }
                 }
             });
         } else {
